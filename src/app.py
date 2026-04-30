@@ -74,6 +74,12 @@ activities = {
         "schedule": "Fridays, 4:00 PM - 5:30 PM",
         "max_participants": 12,
         "participants": ["charlotte@mergington.edu", "henry@mergington.edu"]
+    },
+    "GitHub Skills": {
+        "description": "Learn practical coding and collaboration skills through GitHub's certification program",
+        "schedule": "Wednesdays, 3:30 PM - 5:00 PM",
+        "max_participants": 25,
+        "participants": []
     }
 }
 
@@ -120,11 +126,11 @@ def unregister_from_activity(activity_name: str, email: str):
     # Get the specific activity
     activity = activities[activity_name]
 
-    # Validate student is signed up
+    # Validate student is registered
     if email not in activity["participants"]:
         raise HTTPException(
             status_code=400,
-            detail="Student is not signed up for this activity"
+            detail="Student is not registered for this activity"
         )
 
     # Remove student
